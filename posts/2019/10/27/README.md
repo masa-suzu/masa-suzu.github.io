@@ -6,7 +6,7 @@
 
 一般的なプログラミング言語では馴染みがあるイテレータと例外構文を実装した。
 
-## 動作環境
+## 実行環境
 
 - [ソースコード](https://github.com/koka-lang/koka/commit/ff10f073dec3f92d412996f7bb3d3dc72e9cead8)を[Dockerコンテナ上](https://github.com/masa-suzu/dev-env/blob/master/koka/dockerfile)でビルドした。
 
@@ -32,7 +32,7 @@ public effect panic<t> {
 例えば、`yield`関数は
 
 
-- 任意の型`a`
+- 型`a`
 
 について、
 
@@ -74,7 +74,7 @@ public fun try_continue(action, f) {
 
 例えば、`foreach`関数は、
 
-- 任意の型`a,b,c`
+- 型`a,b,c`
 - 効果`e`
 
 について、
@@ -93,7 +93,7 @@ public fun try_continue(action, f) {
 forall<a,b,c,e>. (action : () -> <examples/enumerable<a>|e> b, f : (a) -> e c) -> e b
 ```
 
-`action`が`examples/enumerable<a>|e`になっており、`enumerable<a>`でない効果を上位のハンドラの処理を上位のハンドラに移譲できるようになっている。
+`action`が`examples/enumerable<a>|e`になっており、`enumerable<a>`でない効果の処理を上位のハンドラに移譲できるようになっている。
 
 キーワード`resume`によって、継続を再開できる。`yield`関数の戻り値の型は`()`なので、`resume(())`のように再開する。
 
@@ -147,7 +147,7 @@ forall<a>. () -> <examples/enumerable<string>,examples/panic<a>> ()
 () -> console ()
 ```
 
-`main`関数を実行すると、iterateにより列挙されたアイテムをハンドルしならが、panicの処理を実施している。
+`main`を実行すると、iterateにより列挙されたアイテムをハンドルしならが、`panic`の処理を実施している。
 
 - `try_catch`の場合は、`panic`のハンドル後に処理の再開はしない。
 
