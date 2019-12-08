@@ -40,9 +40,13 @@ public effect panic<t> {
 
 を受け取り
 
-- `()`を発生させる効果`enumerable<a> ()`
+- `()`
 
-を返す関数になっている。
+を返し
+
+- 効果 `enumerable<a>`
+
+を発生させる関数だ。
 
 ```
 > :t yield
@@ -79,14 +83,18 @@ public fun try_continue(action, f) {
 
 について、
 
- - `b`を発生させる効果`examples/enumerable<a>`あるいは効果`e`を返す関数`action`
- - `c`を発生させる効果`e`を返す関数`f`
+ - ()型の値を受け取り、`b`を返し、効果`examples/enumerable<a>`あるいは効果`e`を発生させる関数`action`
+ - `a`型の値を受け取り、`c`を返し、効果`e`を発生させる関数`f`
 
 を受け取り
 
-- `b`を発生させる効果`e`
+- `b`型の値
 
-を返す関数になっている。
+を返し、
+
+- 効果`e`
+
+を発生させる
 
 ```
 :t examples/foreach
